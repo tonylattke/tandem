@@ -100,3 +100,11 @@ rake db:migrate
 
 add to config/environments/development.rb
 config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+https://coderwall.com/p/bsfitw
+
+rails g model User provider uid name oauth_token oauth_expires_at:datetime
+rake db:migrate
+
+https://www.digitalocean.com/community/tutorials/how-to-configure-devise-and-omniauth-for-your-rails-application
+https://coderwall.com/p/bsfitw
