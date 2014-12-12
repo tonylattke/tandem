@@ -145,3 +145,5 @@ rails generate scaffold Friendship user:references user:references tandem:boolea
 rails generate scaffold MailMessage user:references user:references text:text time:time
 
 rails generate paperclip profile photo
+
+rails generate controller welcome
