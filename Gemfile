@@ -52,3 +52,6 @@ ruby "2.1.2"
 
 # photos
 gem 'paperclip'
+
+# Auth for admin access
+gem "cancan"
