@@ -1,4 +1,5 @@
 class UserLanguagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user_language, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
