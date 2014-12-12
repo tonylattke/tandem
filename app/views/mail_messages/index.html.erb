@@ -1,0 +1,31 @@
+<h1>Listing mail_messages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>User</th>
+      <th>Text</th>
+      <th>Time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mail_messages.each do |mail_message| %>
+      <tr>
+        <td><%= mail_message.user %></td>
+        <td><%= mail_message.user %></td>
+        <td><%= mail_message.text %></td>
+        <td><%= mail_message.time %></td>
+        <td><%= link_to 'Show', mail_message %></td>
+        <td><%= link_to 'Edit', edit_mail_message_path(mail_message) %></td>
+        <td><%= link_to 'Destroy', mail_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mail message', new_mail_message_path %>

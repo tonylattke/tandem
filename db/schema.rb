@@ -11,10 +11,97 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211174442) do
+ActiveRecord::Schema.define(version: 20141212203854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "countries", force: true do |t|
+    t.integer  "message_id"
+    t.string   "time_zone"
+    t.string   "address_representation"
+    t.integer  "code"
+    t.string   "iso_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "countries", ["message_id"], name: "index_countries_on_message_id", using: :btree
+
+  create_table "country_languages", force: true do |t|
+    t.integer  "country_id"
+    t.integer  "language_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "country_languages", ["country_id"], name: "index_country_languages_on_country_id", using: :btree
+  add_index "country_languages", ["language_id"], name: "index_country_languages_on_language_id", using: :btree
+
+  create_table "friendships", force: true do |t|
+    t.integer  "user_id"
+    t.boolean  "tandem"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "friendships", ["user_id"], name: "index_friendships_on_user_id", using: :btree
+
+  create_table "languages", force: true do |t|
+    t.integer  "message_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "languages", ["message_id"], name: "index_languages_on_message_id", using: :btree
+
+  create_table "mail_messages", force: true do |t|
+    t.integer  "user_id"
+    t.text     "text"
+    t.time     "time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mail_messages", ["user_id"], name: "index_mail_messages_on_user_id", using: :btree
+
+  create_table "messages", force: true do |t|
+    t.string   "language"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profiles", force: true do |t|
+    t.integer  "user_id"
+    t.string   "nickname"
+    t.string   "name"
+    t.string   "lastname"
+    t.integer  "language_id"
+    t.string   "song"
+    t.string   "telf"
+    t.date     "birthdate"
+    t.string   "show"
+    t.string   "question"
+    t.string   "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profiles", ["language_id"], name: "index_profiles_on_language_id", using: :btree
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "user_languages", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "language_id"
+    t.string   "level"
+    t.boolean  "learn"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_languages", ["language_id"], name: "index_user_languages_on_language_id", using: :btree
+  add_index "user_languages", ["user_id"], name: "index_user_languages_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

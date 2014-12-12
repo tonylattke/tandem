@@ -50,6 +50,20 @@ rails generate model Post name:string content:string
 	  remove
 rake db:migrate
 
+:binary
+:boolean
+:date
+:datetime
+:decimal
+:float
+:integer
+:primary_key
+:string
+:text
+:time
+:timestamp
+rails generate scaffold TestModel binario:binary booleano:boolean fecha:date fecha2:datetime numerode:decimal tiempo:time tiempo2:timestamp 
+
 // add something on db
 rails c
 
@@ -111,3 +125,21 @@ https://coderwall.com/p/bsfitw
 
 Valid OAuth redirect URIs
 http://localhost:3000
+
+http://guides.rubyonrails.org/migrations.html
+
+/////////
+http://railscasts.com/episodes/134-paperclip?view=asciicast
+http://railscasts.com/episodes/134-paperclip
+gem 'paperclip'
+
+apt-get install imagemagick
+
+rails generate scaffold Message language:string text:string
+rails generate scaffold Language message:references
+rails generate scaffold Profile user:references nickname:string name:string lastname:string language:references song:string telf:string  birthdate:date show:string question:string answer:string
+rails generate scaffold UserLanguage user:references language:references level:string learn:boolean
+rails generate scaffold Country message:references time_zone:string address_representation:string code:integer iso_code:string
+rails generate scaffold CountryLanguage country:references language:references
+rails generate scaffold Friendship user:references user:references tandem:boolean
+rails generate scaffold MailMessage user:references user:references text:text time:time

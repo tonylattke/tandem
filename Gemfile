@@ -38,7 +38,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# admin
+# Admin
 gem 'fastercsv' # Only required on Ruby 1.8 and below
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
@@ -50,3 +50,5 @@ gem 'rails_12factor', group: :production
 gem 'unicorn'
 ruby "2.1.2"
 
+# photos
+gem 'paperclip'

@@ -1,0 +1,27 @@
+<h1>Listing country_languages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Country</th>
+      <th>Language</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @country_languages.each do |country_language| %>
+      <tr>
+        <td><%= country_language.country %></td>
+        <td><%= country_language.language %></td>
+        <td><%= link_to 'Show', country_language %></td>
+        <td><%= link_to 'Edit', edit_country_language_path(country_language) %></td>
+        <td><%= link_to 'Destroy', country_language, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Country language', new_country_language_path %>

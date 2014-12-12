@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @country.message %>
+</p>
+
+<p>
+  <strong>Time zone:</strong>
+  <%= @country.time_zone %>
+</p>
+
+<p>
+  <strong>Address representation:</strong>
+  <%= @country.address_representation %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @country.code %>
+</p>
+
+<p>
+  <strong>Iso code:</strong>
+  <%= @country.iso_code %>
+</p>
+
+<%= link_to 'Edit', edit_country_path(@country) %> |
+<%= link_to 'Back', countries_path %>

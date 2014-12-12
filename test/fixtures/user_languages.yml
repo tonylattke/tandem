@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  language_id: 
+  level: MyString
+  learn: false
+
+two:
+  user_id: 
+  language_id: 
+  level: MyString
+  learn: false
