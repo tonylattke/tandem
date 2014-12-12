@@ -55,5 +55,11 @@
   <%= @profile.answer %>
 </p>
 
+<p>
+  <strong>Answer:</strong>
+  <%= image_tag @profile.photo.url(:small) %>
+</p>
+
+
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>

@@ -143,3 +143,5 @@ rails generate scaffold Country message:references time_zone:string address_repr
 rails generate scaffold CountryLanguage country:references language:references
 rails generate scaffold Friendship user:references user:references tandem:boolean
 rails generate scaffold MailMessage user:references user:references text:text time:time
+
+rails generate paperclip profile photo
