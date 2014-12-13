@@ -152,3 +152,5 @@ rails generate scaffold MailMessage user:references user:references text:text ti
 rails generate paperclip profile photo
 
 rails generate controller welcome
+
+http://stackoverflow.com/questions/2057210/ruby-on-rails-reference-the-same-model-twice

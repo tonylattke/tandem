@@ -6,7 +6,9 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all
-    respond_with(@profiles)
+    @friendships = Friendship.all
+    @lan = Language.all
+    respond_with(@profiles,@friendships)
   end
 
   def show
