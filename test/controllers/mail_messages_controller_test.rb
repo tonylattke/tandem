@@ -18,7 +18,7 @@ class MailMessagesControllerTest < ActionController::TestCase
 
   test "should create mail_message" do
     assert_difference('MailMessage.count') do
-      post :create, mail_message: { text: @mail_message.text, time: @mail_message.time, user_id: @mail_message.user_id, user_id: @mail_message.user_id }
+      post :create, mail_message: { text: @mail_message.text, time: @mail_message.time, sender: @mail_message.sender, recipient: @mail_message.recipient }
     end
 
     assert_redirected_to mail_message_path(assigns(:mail_message))
@@ -35,7 +35,7 @@ class MailMessagesControllerTest < ActionController::TestCase
   end
 
   test "should update mail_message" do
-    patch :update, id: @mail_message, mail_message: { text: @mail_message.text, time: @mail_message.time, user_id: @mail_message.user_id, user_id: @mail_message.user_id }
+    patch :update, id: @mail_message, mail_message: { text: @mail_message.text, time: @mail_message.time, sender: @mail_message.sender, recipient: @mail_message.recipient }
     assert_redirected_to mail_message_path(assigns(:mail_message))
   end
 

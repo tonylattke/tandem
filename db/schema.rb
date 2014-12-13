@@ -17,35 +17,30 @@ ActiveRecord::Schema.define(version: 20141212223631) do
   enable_extension "plpgsql"
 
   create_table "countries", force: true do |t|
-    t.integer  "message_id"
-    t.string   "time_zone"
-    t.string   "address_representation"
-    t.integer  "code"
-    t.string   "iso_code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "message_id"
+    t.string  "time_zone"
+    t.string  "address_representation"
+    t.integer "code"
+    t.string  "iso_code"
   end
 
   add_index "countries", ["message_id"], name: "index_countries_on_message_id", using: :btree
 
   create_table "country_languages", force: true do |t|
-    t.integer  "country_id"
-    t.integer  "language_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "country_id"
+    t.integer "language_id"
   end
 
   add_index "country_languages", ["country_id"], name: "index_country_languages_on_country_id", using: :btree
   add_index "country_languages", ["language_id"], name: "index_country_languages_on_language_id", using: :btree
 
   create_table "friendships", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
     t.boolean  "tandem"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "friendships", ["user_id"], name: "index_friendships_on_user_id", using: :btree
 
   create_table "languages", force: true do |t|
     t.integer  "message_id"
@@ -56,20 +51,17 @@ ActiveRecord::Schema.define(version: 20141212223631) do
   add_index "languages", ["message_id"], name: "index_languages_on_message_id", using: :btree
 
   create_table "mail_messages", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
     t.text     "text"
     t.time     "time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "mail_messages", ["user_id"], name: "index_mail_messages_on_user_id", using: :btree
-
   create_table "messages", force: true do |t|
-    t.string   "language"
-    t.string   "text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "language"
+    t.string "text"
   end
 
   create_table "profiles", force: true do |t|

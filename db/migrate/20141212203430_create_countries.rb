@@ -6,8 +6,6 @@ class CreateCountries < ActiveRecord::Migration
       t.string :address_representation
       t.integer :code
       t.string :iso_code
-
-      t.timestamps
     end
   end
 end

@@ -43,6 +43,6 @@ class MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:language, :text)
+      params.require(:message).permit(:sender,:recipient:language, :text)
     end
 end
