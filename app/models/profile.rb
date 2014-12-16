@@ -1,6 +1,7 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
   belongs_to :language
+
   has_attached_file :photo, :styles => { :small => "168x168>" },
   :url  => "/assets/profile/:id/:style/:basename.:extension",
   :path => ":rails_root/public/assets/profiles/:id/:style/:basename.:extension"

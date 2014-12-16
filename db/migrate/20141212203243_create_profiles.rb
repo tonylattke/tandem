@@ -6,10 +6,9 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :name
       t.string :lastname
       t.references :language, index: true
-      t.string :song
       t.string :telf
       t.date :birthdate
-      t.string :show
+      t.string :about
       t.string :question
       t.string :answer
 

@@ -6,7 +6,6 @@ one:
   name: MyString
   lastname: MyString
   language_id: 
-  song: MyString
   telf: MyString
   birthdate: 2014-12-12
   show: MyString
@@ -19,7 +18,6 @@ two:
   name: MyString
   lastname: MyString
   language_id: 
-  song: MyString
   telf: MyString
   birthdate: 2014-12-12
   show: MyString

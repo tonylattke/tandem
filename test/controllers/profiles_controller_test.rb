@@ -18,7 +18,7 @@ class ProfilesControllerTest < ActionController::TestCase
 
   test "should create profile" do
     assert_difference('Profile.count') do
-      post :create, profile: { answer: @profile.answer, birthdate: @profile.birthdate, language_id: @profile.language_id, lastname: @profile.lastname, name: @profile.name, nickname: @profile.nickname, question: @profile.question, show: @profile.show, song: @profile.song, telf: @profile.telf, user_id: @profile.user_id }
+      post :create, profile: { answer: @profile.answer, birthdate: @profile.birthdate, language_id: @profile.language_id, lastname: @profile.lastname, name: @profile.name, nickname: @profile.nickname, question: @profile.question, show: @profile.show, telf: @profile.telf, user_id: @profile.user_id }
     end
 
     assert_redirected_to profile_path(assigns(:profile))
@@ -35,7 +35,7 @@ class ProfilesControllerTest < ActionController::TestCase
   end
 
   test "should update profile" do
-    patch :update, id: @profile, profile: { answer: @profile.answer, birthdate: @profile.birthdate, language_id: @profile.language_id, lastname: @profile.lastname, name: @profile.name, nickname: @profile.nickname, question: @profile.question, show: @profile.show, song: @profile.song, telf: @profile.telf, user_id: @profile.user_id }
+    patch :update, id: @profile, profile: { answer: @profile.answer, birthdate: @profile.birthdate, language_id: @profile.language_id, lastname: @profile.lastname, name: @profile.name, nickname: @profile.nickname, question: @profile.question, show: @profile.show, telf: @profile.telf, user_id: @profile.user_id }
     assert_redirected_to profile_path(assigns(:profile))
   end
 
