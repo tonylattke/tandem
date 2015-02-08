@@ -24,12 +24,20 @@
 				<a class="navbar-brand" href="/">Tandem</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="/">Home</a></li>
-					<% if user_signed_in? %>
-						<li><a href="#">Profile</a></li>
-					<% end %>
-				</ul>
+				<% if user_signed_in? %>
+					<!-- Left options -->
+					<ul class="nav navbar-nav">
+						<li>
+							<%= link_to "Profile", profile_path(@user_profile) %>
+						</li>
+					</ul>
+					<!-- Right options -->
+					<ul class="nav navbar-nav navbar-right">
+						<li class="page-scroll">
+							<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+						</li>
+					</ul>
+				<% end %>
 			</div>
 		</div>
 	</nav>
@@ -37,7 +45,6 @@
 	<div class="container margen">
 		<%= yield %>
 	</div>
-
 
 	<!-- JavaScript -->
 	<%= javascript_include_tag "jquery-1.10.2" %>
