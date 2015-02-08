@@ -1,0 +1,8 @@
+<div class="well">
+  <h1>My friends</h1>
+  <% if user_signed_in? %>
+    <% @profiles.each do |friend| %>
+      <%= link_to friend.nickname, profile_path(friend) %>
+    <% end %>
+  <% end %>
+</div>
