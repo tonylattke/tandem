@@ -8,7 +8,7 @@ one:
   language_id: 
   telf: MyString
   birthdate: 2014-12-12
-  show: MyString
+  about: MyString
   question: MyString
   answer: MyString
 
@@ -20,6 +20,6 @@ two:
   language_id: 
   telf: MyString
   birthdate: 2014-12-12
-  show: MyString
+  about: MyString
   question: MyString
   answer: MyString
