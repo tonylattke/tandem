@@ -1,5 +1,6 @@
 class MailMessagesController < ApplicationController
   before_action :authenticate_user!
+  skip_before_filter :verify_authenticity_token, :only => :create
   before_action :set_mail_message, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -22,7 +23,14 @@ class MailMessagesController < ApplicationController
   end
 
   def create
-    @mail_message = MailMessage.new(mail_message_params)
+    #@mail_message = MailMessage.new(mail_message_params)
+    @mail_message = 
+      MailMessage.new(
+        {:sender_id => params[:mail_message][:sender].to_i, 
+         :recipient_id => params[:mail_message][:recipient].to_i, 
+         :text => params[:mail_message][:text]
+        })
+
     @mail_message.save
     respond_with(@mail_message)
   end
@@ -43,6 +51,6 @@ class MailMessagesController < ApplicationController
     end
 
     def mail_message_params
-      params.require(:mail_message).permit(:user_id, :user_id, :text, :time)
+      params.require(:mail_message).permit(:sender, :recipient, :text)
     end
 end

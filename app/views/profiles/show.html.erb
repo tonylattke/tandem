@@ -56,6 +56,23 @@
   <%= image_tag @profile.photo.url(:small) %>
 </p>
 
-<% if @is_friend %>
-  <a href="">send invitation as a friend</a>
+<% if user_signed_in? %>
+  <% if @is_friend %>
+    <a href="#">send invitation as a friend</a>
+  <% end %>
+
+  <% if  @profile.user.id != current_user.id %>
+    <form accept-charset="UTF-8" action="/mail_messages" method="post" role="form">
+      <input name="utf8" type="hidden" value="&#x2713;" />
+      <%= csrf_meta_tags %>
+      <input id="mail_message_sender" type="hidden" name="mail_message[sender]" type="text" value="<%=current_user.id%>"/>
+      <input id="mail_message_recipient" type="hidden" name="mail_message[recipient]" type="text" value="<%=@profile.user.id%>"/>
+      <h4>Text:</h4>
+      <div class="form-group">
+          <textarea id="mail_message_text" name="mail_message[text]" class="form-control" rows="3" autofocus="autofocus"></textarea>
+      </div>
+
+      <button id="create_mail_message" name="commit" type="submit" class="btn btn-primary">Send message</button>
+    </form>
+  <% end %>
 <% end %>

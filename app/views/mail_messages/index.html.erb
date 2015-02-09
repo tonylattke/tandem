@@ -6,7 +6,6 @@
       <th>Sender</th>
       <th>Recipient</th>
       <th>Text</th>
-      <th>Time</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +16,6 @@
         <td><%= mail_message.sender %></td>
         <td><%= mail_message.recipient %></td>
         <td><%= mail_message.text %></td>
-        <td><%= mail_message.time %></td>
         <td><%= link_to 'Show', mail_message %></td>
         <td><%= link_to 'Edit', edit_mail_message_path(mail_message) %></td>
         <td><%= link_to 'Destroy', mail_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>

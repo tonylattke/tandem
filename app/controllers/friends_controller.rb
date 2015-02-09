@@ -2,6 +2,7 @@ class FriendsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
+		# Search friends
 		friends_user = []
 		friendships = Friendship.where("recipient_id = ? or sender_id = ?",current_user,current_user)
 		for friendship in friendships
@@ -16,8 +17,8 @@ class FriendsController < ApplicationController
 			@friends.push(Profile.find_by(user: friend))
 		end
 
-		# Clean you and friends TO DO
-		@profiles = []
+		# Clean you and friends
+		@another_profiles = []
 		for profile in Profile.all
 			is_friend = false
 			for friend in @friends
@@ -27,7 +28,7 @@ class FriendsController < ApplicationController
 				end
 			end
 			if (not is_friend) and (profile.user != current_user)
-				@profiles.push(profile)
+				@another_profiles.push(profile)
 			end
 		end
 	end

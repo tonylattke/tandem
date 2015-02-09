@@ -8,7 +8,7 @@
   
 	<h1>Other Users</h1>
 	
-	<% @profiles.each do |user| %>
+	<% @another_profiles.each do |user| %>
 		<%= link_to user.nickname, profile_path(user) %>
 	<% end %>
 
