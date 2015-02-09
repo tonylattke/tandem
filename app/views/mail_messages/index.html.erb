@@ -1,5 +1,3 @@
-<h1>Listing mail_messages</h1>
-
 <table>
   <thead>
     <tr>
@@ -16,14 +14,7 @@
         <td><%= mail_message.sender %></td>
         <td><%= mail_message.recipient %></td>
         <td><%= mail_message.text %></td>
-        <td><%= link_to 'Show', mail_message %></td>
-        <td><%= link_to 'Edit', edit_mail_message_path(mail_message) %></td>
-        <td><%= link_to 'Destroy', mail_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Mail message', new_mail_message_path %>
