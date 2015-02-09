@@ -5,7 +5,11 @@ class FriendsController < ApplicationController
 		friends_user = []
 		friendships = Friendship.where("recipient_id = ? or sender_id = ?",current_user,current_user)
 		for friendship in friendships
-			friends_user.push(friendship.recipient)
+			if friendship.sender == current_user 
+				friends_user.push(friendship.recipient)
+			else
+				friends_user.push(friendship.sender)
+			end
 		end
 		@friends = []
 		for friend in friends_user[0,5]
