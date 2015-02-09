@@ -142,7 +142,7 @@ apt-get install imagemagick
 
 rails generate scaffold Message language:string text:string
 rails generate scaffold Language message:references
-rails generate scaffold Profile user:references nickname:string name:string lastname:string language:references telf:string birthdate:date show:string question:string answer:string
+rails generate scaffold Profile user:references nickname:string name:string lastname:string language:references telf:string birthdate:date about:string question:string answer:string
 rails generate scaffold UserLanguage user:references language:references level:string learn:boolean
 rails generate scaffold Country message:references time_zone:string address_representation:string code:integer iso_code:string
 rails generate scaffold CountryLanguage country:references language:references
