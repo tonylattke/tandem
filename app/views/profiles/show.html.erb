@@ -56,6 +56,6 @@
   <%= image_tag @profile.photo.url(:small) %>
 </p>
 
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<% if @is_friend %>
+  <a href="">send invitation as a friend</a>
+<% end %>

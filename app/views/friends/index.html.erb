@@ -1,8 +1,14 @@
 <div class="well">
-  <h1>My friends</h1>
-  <% if user_signed_in? %>
-    <% @profiles.each do |friend| %>
-      <%= link_to friend.nickname, profile_path(friend) %>
-    <% end %>
-  <% end %>
+  
+	<h1>My friends</h1>
+
+	<% @friends.each do |friend| %>
+		<%= link_to friend.nickname, profile_path(friend) %>
+	<% end %>
+  
+	<h1>Other Users</h1>
+	<% @profiles.each do |user| %>
+		<%= link_to user.nickname, profile_path(user) %>
+	<% end %>
+
 </div>

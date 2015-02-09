@@ -12,6 +12,15 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    # it's not you
+    if current_user != @profile.user
+      # Check friendship
+      friendships = Friendship.where("(recipient_id = ? and sender_id = ?) or (sender_id = ? and recipient_id = ?)",@profile.user,current_user,current_user,@profile.user)
+      if not friendships.any?
+        @is_friend=true
+      end
+    end
+
     respond_with(@profile)
   end
 
