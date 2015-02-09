@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :welcome
+
+  get 'inbox', to: 'welcome#inbox', as: 'inbox'
+  get 'sent', to: 'welcome#sent', as: 'sent'
+
   resources :friends
 
   resources :mail_messages
