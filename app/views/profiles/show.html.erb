@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @profile.user %>
-</p>
-
-<p>
   <strong>Nickname:</strong>
   <%= @profile.nickname %>
 </p>
@@ -24,7 +19,6 @@
   <strong>Language:</strong>
   <%= @profile.language %>
 </p>
-
 
 <p>
   <strong>Telf:</strong>
@@ -74,5 +68,7 @@
 
       <button id="create_mail_message" name="commit" type="submit" class="btn btn-primary">Send message</button>
     </form>
+  <% else %>
+    <%= link_to 'Edit', edit_profile_path(@profile) %>
   <% end %>
 <% end %>

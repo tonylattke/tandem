@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  # before_filter :require_permission, only: :edit
 
   respond_to :html
 
@@ -48,6 +49,13 @@ class ProfilesController < ApplicationController
     respond_with(@profile)
   end
 
+  def require_permission
+    if current_user != @profile.user
+      redirect_to root_path
+      #Or do something else here
+    end
+  end
+
   private
     def set_profile
       @profile = Profile.find(params[:id])
@@ -56,4 +64,7 @@ class ProfilesController < ApplicationController
     def profile_params
       params.require(:profile).permit(:user_id, :nickname, :name, :lastname, :language_id, :telf, :birthdate, :about, :question, :answer)
     end
+
+    before_filter :require_permission, only: :edit
+
 end

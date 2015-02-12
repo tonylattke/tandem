@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
   def get_user
     if user_signed_in?
       @user_profile = Profile.find_by(user: current_user.id)
+      if @user_profile.nil?
+        profile = Profile.new({:user => current_user, :photo => "http://tony.lattke.org/img/perfil.png"})
+        profile.save
+        @user_profile = profile
+      end
     end
   end
 

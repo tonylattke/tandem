@@ -1,11 +1,11 @@
 <div class="well">
-  
+
 	<h1>My friends</h1>
 
 	<% @friends.each do |friend| %>
 		<%= link_to friend.nickname, profile_path(friend) %>
 	<% end %>
-  
+
 	<h1>Other Users</h1>
 	
 	<% @another_profiles.each do |user| %>
