@@ -43,6 +43,6 @@ class LanguagesController < ApplicationController
     end
 
     def language_params
-      params.require(:language).permit(:message_id)
+      params.require(:language).permit(:name)
     end
 end

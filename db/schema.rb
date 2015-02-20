@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220223734) do
+ActiveRecord::Schema.define(version: 20150220230532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,12 +41,10 @@ ActiveRecord::Schema.define(version: 20150220223734) do
   end
 
   create_table "languages", force: true do |t|
-    t.integer  "message_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
-
-  add_index "languages", ["message_id"], name: "index_languages_on_message_id", using: :btree
 
   create_table "mail_messages", force: true do |t|
     t.integer  "sender_id"

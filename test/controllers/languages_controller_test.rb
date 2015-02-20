@@ -18,7 +18,7 @@ class LanguagesControllerTest < ActionController::TestCase
 
   test "should create language" do
     assert_difference('Language.count') do
-      post :create, language: { message_id: @language.message_id }
+      post :create, language: { name: @language.name }
     end
 
     assert_redirected_to language_path(assigns(:language))
@@ -35,7 +35,7 @@ class LanguagesControllerTest < ActionController::TestCase
   end
 
   test "should update language" do
-    patch :update, id: @language, language: { message_id: @language.message_id }
+    patch :update, id: @language, language: { name: @language.name }
     assert_redirected_to language_path(assigns(:language))
   end
 
