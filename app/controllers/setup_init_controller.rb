@@ -1,7 +1,7 @@
 class SetupInitController < ApplicationController
 
 	def index
-		# Load Countries
+		############################ Load Countries ###########################
 		
 		# format time zone UTC
 		
@@ -31,7 +31,7 @@ class SetupInitController < ApplicationController
 		]
 
 		for country in countries
-			country = Country.new(
+			new_country = Country.new(
 				{
 					:name => country['name'],
 					:time_zone => country['time_zone'],
@@ -39,10 +39,50 @@ class SetupInitController < ApplicationController
 					:code => country['code'],
 					:iso_code => country['iso_code']
 				})
-			#country.save
+			new_country.save
 		end
 
+		############################ Load Languages ###########################
 		
+		languages = [
+			{
+				'name' 		=> 'german',
+			},
+			{
+				'name' 		=> 'spanish',
+			}
+		]
+
+		for language in languages
+			new_language = Language.new(
+				{
+					:name => language['name']
+				})
+			new_language.save
+		end
+
+		#################### Load Countries with Languages ####################
+		
+		c_l_s = [
+			{
+				'country' 	=> 'Germany',
+				'language' 	=> 'german',
+			},
+			{
+				'country' 	=> 'Venezuela',
+				'language'	=> 'spanish',
+			}
+		]
+
+		for c_l in c_l_s
+			new_c_l = CountryLanguage.new(
+				{
+					:country => Country.find_by(name: c_l['country']),
+					:language => Language.find_by(name: c_l['language'])
+				})
+			new_c_l.save
+		end
+
 	end
 
 end
