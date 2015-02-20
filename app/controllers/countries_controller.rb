@@ -43,6 +43,6 @@ class CountriesController < ApplicationController
     end
 
     def country_params
-      params.require(:country).permit(:message_id, :time_zone, :address_representation, :code, :iso_code)
+      params.require(:country).permit(:time_zone, :address_representation, :code, :iso_code, :name)
     end
 end

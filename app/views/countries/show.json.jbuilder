@@ -1,1 +1,1 @@
-json.extract! @country, :id, :message_id, :time_zone, :address_representation, :code, :iso_code
+json.extract! @country, :id, :name, :time_zone, :address_representation, :code, :iso_code

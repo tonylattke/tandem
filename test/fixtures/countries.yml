@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  message_id: 
+  name: MyString
   time_zone: MyString
   address_representation: MyString
   code: 1
   iso_code: MyString
 
 two:
-  message_id: 
+  name: MyString
   time_zone: MyString
   address_representation: MyString
   code: 1

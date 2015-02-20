@@ -11,20 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212232810) do
+ActiveRecord::Schema.define(version: 20150220223734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "countries", force: true do |t|
-    t.integer "message_id"
     t.string  "time_zone"
     t.string  "address_representation"
     t.integer "code"
     t.string  "iso_code"
+    t.string  "name"
   end
-
-  add_index "countries", ["message_id"], name: "index_countries_on_message_id", using: :btree
 
   create_table "country_languages", force: true do |t|
     t.integer "country_id"

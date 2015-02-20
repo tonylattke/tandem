@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'inbox', to: 'welcome#inbox', as: 'inbox'
   get 'sent', to: 'welcome#sent', as: 'sent'
 
+  resources :setup_init
+
   resources :friends
 
   resources :mail_messages
