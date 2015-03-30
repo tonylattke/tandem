@@ -39,7 +39,7 @@ class SetupInitController < ApplicationController
 					:code => country['code'],
 					:iso_code => country['iso_code']
 				})
-			new_country.save
+			#new_country.save
 		end
 
 		############################ Load Languages ###########################
@@ -58,7 +58,7 @@ class SetupInitController < ApplicationController
 				{
 					:name => language['name']
 				})
-			new_language.save
+			#new_language.save
 		end
 
 		#################### Load Countries with Languages ####################
@@ -80,7 +80,7 @@ class SetupInitController < ApplicationController
 					:country => Country.find_by(name: c_l['country']),
 					:language => Language.find_by(name: c_l['language'])
 				})
-			new_c_l.save
+			#new_c_l.save
 		end
 
 	end

@@ -32,7 +32,7 @@ class MailMessagesController < ApplicationController
         })
 
     @mail_message.save
-    respond_with(@mail_message)
+    redirect_to sent_path
   end
 
   def update
