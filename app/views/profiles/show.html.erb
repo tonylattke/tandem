@@ -1,58 +1,76 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nickname:</strong>
-  <%= @profile.nickname %>
-</p>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h2><%= @profile.nickname %></h2>
+      <%= image_tag @profile.photo.url(:small) %>
+      <% if @profile.about? %>
+        <h4><%= @profile.about %></h4>
+      <% else %>
+        <h4>No about information yet</h4>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
+<div class="row">
+  <div class="col-md-3">
+    <h3>Name</h3>
+    <% if @profile.name? %>
+      <p><%= @profile.name %></p>
+    <% else %>
+      <p>No name yet</p>
+    <% end %>
+  </div>
+  <div class="col-md-3">
+    <h3>Lastname</h3>
+    <% if @profile.lastname? %>
+      <p><%= @profile.lastname %></p>
+    <% else %>
+      <p>No Lastname yet</p>
+    <% end %>
+  </div>
+  <div class="col-md-3">
+    <h3>Telephone</h3>
+    <% if @profile.telf? %>
+      <p><%= @profile.telf %></p>
+    <% else %>
+      <p>No telephone yet</p>
+    <% end %>
+  </div>
+  <div class="col-md-3">
+    <h3>Birthdate</h3>
+    <% if @profile.birthdate? %>
+      <p><%= @profile.birthdate %></p>
+    <% else %>
+      <p>No birthdate data yet</p>
+    <% end %>
+  </div>
+  <% if  @profile.user.id == current_user.id %>
+    <div class="col-md-3">
+      <h3>Language interface</h3>
+      <%= @profile.language %>
+    </div>
+    <div class="col-md-3">
+      <h3>Question</h3>
+      <p><%= @profile.question %></p>
+    </div>
+    <div class="col-md-3">
+      <h3>Answer</h3>
+      <p><%= @profile.answer %></p>
+    </div>
+  <% end %>
+</div>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @profile.lastname %>
-</p>
-
-<p>
-  <strong>Language:</strong>
-  <%= @profile.language %>
-</p>
-
-<p>
-  <strong>Telf:</strong>
-  <%= @profile.telf %>
-</p>
-
-<p>
-  <strong>Birthdate:</strong>
-  <%= @profile.birthdate %>
-</p>
-
-<p>
-  <strong>About:</strong>
-  <%= @profile.about %>
-</p>
-
-<p>
-  <strong>Question:</strong>
-  <%= @profile.question %>
-</p>
-
-<p>
-  <strong>Answer:</strong>
-  <%= @profile.answer %>
-</p>
-
-<p>
-  <strong>Answer:</strong>
-  <%= image_tag @profile.photo.url(:small) %>
-</p>
 
 <% if user_signed_in? %>
   <% if @is_friend %>
-    <a href="#">send invitation as a friend</a>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <button id="send_friend_invitation" name="commit" type="submit" class="btn btn-primary">Send invitation as a friend</button>
+      </div>
+    </div>
   <% end %>
 
   <% if  @profile.user.id != current_user.id %>
@@ -61,14 +79,14 @@
       <%= csrf_meta_tags %>
       <input id="mail_message_sender" type="hidden" name="mail_message[sender]" type="text" value="<%=current_user.id%>"/>
       <input id="mail_message_recipient" type="hidden" name="mail_message[recipient]" type="text" value="<%=@profile.user.id%>"/>
-      <h4>Text:</h4>
+      <h4>Text message:</h4>
       <div class="form-group">
           <textarea id="mail_message_text" name="mail_message[text]" class="form-control" rows="3" autofocus="autofocus"></textarea>
       </div>
 
-      <button id="create_mail_message" name="commit" type="submit" class="btn btn-primary">Send message</button>
+      <button id="create_mail_message" name="commit" type="submit" class="btn btn-primary">Send</button>
     </form>
   <% else %>
-    <%= link_to 'Edit', edit_profile_path(@profile) %>
+    <%= link_to 'Edit', edit_profile_path(@profile), :class => "btn btn-primary" %>
   <% end %>
 <% end %>

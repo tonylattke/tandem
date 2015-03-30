@@ -23,16 +23,18 @@ class MailMessagesController < ApplicationController
   end
 
   def create
-    #@mail_message = MailMessage.new(mail_message_params)
-    @mail_message = 
-      MailMessage.new(
-        {:sender_id => params[:mail_message][:sender].to_i, 
-         :recipient_id => params[:mail_message][:recipient].to_i, 
-         :text => params[:mail_message][:text]
-        })
-
-    @mail_message.save
-    redirect_to sent_path
+    if params[:mail_message][:text].length > 0
+      @mail_message = 
+        MailMessage.new(
+          {:sender_id => params[:mail_message][:sender].to_i, 
+           :recipient_id => params[:mail_message][:recipient].to_i, 
+           :text => params[:mail_message][:text]
+          })  
+      @mail_message.save
+      redirect_to sent_path
+    else
+      redirect_to (session[:return_to] || root_path), :alert => 'Error: Your message was to short'
+    end
   end
 
   def update

@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :get_user
   add_flash_types :error
 
+  after_filter "store_location"
+
   def get_user
     if user_signed_in?
       @user_profile = Profile.find_by(user: current_user.id)
@@ -14,6 +16,10 @@ class ApplicationController < ActionController::Base
         @user_profile = profile
       end
     end
+  end
+
+  def store_location
+    session[:return_to] = request.fullpath if request.get?
   end
 
 end

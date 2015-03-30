@@ -40,13 +40,12 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    nickname = { 'nickname' => profile_params['nickname'] }
-    profile_aux = Profile.find_by(nickname)
+    
+    profile_aux = Profile.find_by(nickname: profile_params['nickname'])
 
     if profile_aux != nil
       if (profile_aux.id != @profile.id)
-        #error = 'Error while sending message!'
-        redirect_to edit_profile_path(@profile)
+        redirect_to edit_profile_path(@profile), :alert => 'Error: Nickname already exists'
       else
         @profile.update(profile_params)
         respond_with(@profile)
