@@ -58,7 +58,7 @@ class ProfilesController < ApplicationController
 
   private
     def set_profile
-      @profile = Profile.find(params[:id])
+      @profile = Profile.friendly.find(params[:id])
     end
 
     def profile_params

@@ -55,3 +55,6 @@ gem 'paperclip'
 
 # Auth for admin access
 gem "cancan"
+
+# FriendlyId
+gem 'friendly_id'

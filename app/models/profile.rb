@@ -1,4 +1,9 @@
 class Profile < ActiveRecord::Base
+  
+  extend FriendlyId
+
+  friendly_id :nickname, use: :slugged
+
   belongs_to :user
   belongs_to :language
 
@@ -13,4 +18,5 @@ class Profile < ActiveRecord::Base
   def to_s
     return "#{@nickname}"
   end
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220230532) do
+ActiveRecord::Schema.define(version: 20150330175903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,9 +77,11 @@ ActiveRecord::Schema.define(version: 20150220230532) do
     t.datetime "photo_updated_at"
     t.string   "gender",             default: "m"
     t.text     "about"
+    t.string   "slug"
   end
 
   add_index "profiles", ["language_id"], name: "index_profiles_on_language_id", using: :btree
+  add_index "profiles", ["slug"], name: "index_profiles_on_slug", unique: true, using: :btree
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "user_languages", force: true do |t|
