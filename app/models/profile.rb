@@ -19,4 +19,7 @@ class Profile < ActiveRecord::Base
     return "#{@nickname}"
   end
 
+  def should_generate_new_friendly_id?
+    nickname_changed?
+  end
 end

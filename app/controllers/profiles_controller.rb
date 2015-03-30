@@ -40,8 +40,21 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile.update(profile_params)
-    respond_with(@profile)
+    nickname = { 'nickname' => profile_params['nickname'] }
+    profile_aux = Profile.find_by(nickname)
+
+    if profile_aux != nil
+      if (profile_aux.id != @profile.id)
+        #error = 'Error while sending message!'
+        redirect_to edit_profile_path(@profile)
+      else
+        @profile.update(profile_params)
+        respond_with(@profile)
+      end
+    else
+      @profile.update(profile_params)
+      respond_with(@profile)
+    end
   end
 
   def destroy

@@ -160,4 +160,18 @@ FriendlyId
 
 gem 'friendly_id'
 
+rails g migration AddSlugToPosts
+
+add_column :posts, :slug, :string
+add_index :posts, :slug, unique: true
+
+rake db:migrate
+
+extend FriendlyId
+friendly_id :title, use: :slugged
+
+rails c
+
+Posts.find_each(&:save)
+
 http://richonrails.com/articles/create-friendlier-looking-urls-with-friendlyid
