@@ -104,11 +104,15 @@ namespace :init do
     puts 'Ready! languages added to countries'
   end
 
+  #######################################################################################
+  ####################################### All ###########################################
+  #######################################################################################
+
   desc "Run all initializers"
   task all: :environment do
-    Rake::Task["initializers:languages"].invoke
-    Rake::Task["initializers:countries"].invoke
-    Rake::Task["initializers:countries_languages"].invoke
+    Rake::Task["init:languages"].invoke
+    Rake::Task["init:countries"].invoke
+    Rake::Task["init:countries_languages"].invoke
   end
 
 end
