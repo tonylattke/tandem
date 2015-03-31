@@ -1,4 +1,9 @@
 namespace :init do
+
+  #######################################################################################
+  ###################################### Languages ######################################
+  #######################################################################################
+
   desc "Add languages to DB"
   task languages: :environment do
     languages = 
@@ -13,6 +18,10 @@ namespace :init do
     end
     puts 'Ready! Languages loaded'
   end
+
+  #######################################################################################
+  ###################################### Countries ######################################
+  #######################################################################################
 
   desc "Add countries to DB"
   task countries: :environment do
@@ -61,6 +70,10 @@ namespace :init do
     puts 'Ready! Countries loaded'
   end
 
+  #######################################################################################
+  ############################## Countries & Languages ##################################
+  #######################################################################################
+
   desc "Add languages to the countries to DB"
   task countries_languages: :environment do
     ####################################### Spanish #####################################
@@ -89,6 +102,13 @@ namespace :init do
     usa_english.save
 
     puts 'Ready! languages added to countries'
+  end
+
+  desc "Run all initializers"
+  task all: :environment do
+    Rake::Task["initializers:languages"].invoke
+    Rake::Task["initializers:countries"].invoke
+    Rake::Task["initializers:countries_languages"].invoke
   end
 
 end
