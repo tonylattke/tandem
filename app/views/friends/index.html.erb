@@ -2,14 +2,27 @@
 
 	<h1>My friends</h1>
 
-	<% @friends.each do |friend| %>
-		<%= link_to friend.nickname, profile_path(friend) %>
-	<% end %>
+	<div class="row">
+		<% @friends.each do |friend| %>
+			<div class="col-md-3 text-center">
+				<div class="show-profile-preview">
+					<h3><%= link_to friend.nickname, profile_path(friend) %></h3>
+				<%= image_tag friend.photo.url(:small) %>
+				</div>
+			</div>
+		<% end %>
+	</div>
 
 	<h1>Other Users</h1>
 	
+	<div class="row">
 	<% @another_profiles.each do |user| %>
-		<%= link_to user.nickname, profile_path(user) %>
+		<div class="col-md-3 text-center">
+			<div class="show-profile-preview">
+				<h3><%= link_to user.nickname, profile_path(user) %></h3>
+				<%= image_tag user.photo.url(:small) %>
+			</div>
+		</div>
 	<% end %>
-
+	</div>
 </div>
