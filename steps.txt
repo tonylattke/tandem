@@ -175,3 +175,7 @@ rails c
 Posts.find_each(&:save)
 
 http://richonrails.com/articles/create-friendlier-looking-urls-with-friendlyid
+
+---------
+Angular.js
+http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails

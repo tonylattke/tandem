@@ -1,4 +1,5 @@
-<div>
+<div ng-app='app.profileApp' ng-controller='profileCtrl'>
+  
   <%= form_for(@profile) do |f| %>
     <% if @profile.errors.any? %>
       <div id="error_explanation">
@@ -10,7 +11,7 @@
         </ul>
       </div>
     <% end %>
-    {{languages}}
+    
     <div class="field">
       <%= f.label :nickname %><br>
       <%= f.text_field :nickname %>
@@ -25,7 +26,12 @@
     </div>
     <div class="field">
       <%= f.label :language_id %><br>
-      <%= f.select(:language_id, options_for_select([['Spanish', 7], ['English', 8], ['German', 6]])) %>
+      <%= f.select :language_id, Language.all.collect {|p| [ p.name, p.id ] }, :selected => params[:language_id], :class => 'span3 controls controls-row', :selected => params[:language_id].present? ? params[:language_id] : nil %>
+      <select>
+        <option ng-repeat="language in languages" value="{{language.id}}">
+          {{language.name}}
+        </option>
+      </select>
     </div>
     <div class="field">
       <%= f.label :telf %><br>

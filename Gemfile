@@ -58,3 +58,7 @@ gem "cancan"
 
 # FriendlyId
 gem 'friendly_id'
+
+# Angular.js
+gem 'angular-rails-templates'
+gem 'bower-rails'
