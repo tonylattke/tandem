@@ -1,12 +1,12 @@
 class LanguagesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_language, only: [:show, :edit, :update, :destroy]
-
-  respond_to :html
+  
+  #respond_to :html
 
   def index
     @languages = Language.all
-    respond_with(@languages)
+    #respond_with(@languages)
   end
 
   def show

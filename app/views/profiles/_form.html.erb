@@ -1,64 +1,65 @@
-<%= form_for(@profile) do |f| %>
-  <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+<div>
+  <%= form_for(@profile) do |f| %>
+    <% if @profile.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+        <ul>
+        <% @profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    {{languages}}
+    <div class="field">
+      <%= f.label :nickname %><br>
+      <%= f.text_field :nickname %>
+    </div>
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :lastname %><br>
+      <%= f.text_field :lastname %>
+    </div>
+    <div class="field">
+      <%= f.label :language_id %><br>
+      <%= f.select(:language_id, options_for_select([['Spanish', 7], ['English', 8], ['German', 6]])) %>
+    </div>
+    <div class="field">
+      <%= f.label :telf %><br>
+      <%= f.text_field :telf %>
+    </div>
+    <div class="field">
+      <%= f.label :birthdate %><br>
+      <%= f.date_select :birthdate %>
+    </div>
+    <div class="field">
+      <%= f.label :about %><br>
+      <%= f.text_area :about %>
+    </div>
+    <div class="field">
+      <%= f.label :question %><br>
+      <%= f.text_field :question %>
+    </div>
+    <div class="field">
+      <%= f.label :answer %><br>
+      <%= f.text_field :answer %>
+    </div>
 
-      <ul>
-      <% @profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="field">
+      <%= f.label :gender %><br>
+      <%= f.text_field :gender %>
+    </div>
+
+    <div class="field">
+      <%= f.label :photo %><br>
+      <%= f.file_field :photo %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-  
-  <div class="field">
-    <%= f.label :nickname %><br>
-    <%= f.text_field :nickname %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br>
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :language_id %><br>
-    <%= f.text_field :language_id %>
-  </div>
-  <div class="field">
-    <%= f.label :telf %><br>
-    <%= f.text_field :telf %>
-  </div>
-  <div class="field">
-    <%= f.label :birthdate %><br>
-    <%= f.date_select :birthdate %>
-  </div>
-  <div class="field">
-    <%= f.label :about %><br>
-    <%= f.text_area :about %>
-  </div>
-  <div class="field">
-    <%= f.label :question %><br>
-    <%= f.text_field :question %>
-  </div>
-  <div class="field">
-    <%= f.label :answer %><br>
-    <%= f.text_field :answer %>
-  </div>
-
-  <div class="field">
-    <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
-  </div>
-
-  <div class="field">
-    <%= f.label :photo %><br>
-    <%= f.file_field :photo %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

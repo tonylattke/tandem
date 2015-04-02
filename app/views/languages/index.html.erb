@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Message</th>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -11,7 +11,7 @@
   <tbody>
     <% @languages.each do |language| %>
       <tr>
-        <td><%= language.message %></td>
+        <td><%= language.name %></td>
         <td><%= link_to 'Show', language %></td>
         <td><%= link_to 'Edit', edit_language_path(language) %></td>
         <td><%= link_to 'Destroy', language, method: :delete, data: { confirm: 'Are you sure?' } %></td>

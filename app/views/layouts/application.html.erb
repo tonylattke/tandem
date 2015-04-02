@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Test - Lattke</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<title>Test - Lattke</title>
+	<%= stylesheet_link_tag    'application', media: 'all' %>
 
-  <%= stylesheet_link_tag "bootstrap" %>
+	<%= javascript_include_tag 'application' %>
+
+	<%= stylesheet_link_tag "bootstrap" %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
@@ -54,6 +53,7 @@
 	
 	<div class="container margen">
 		<%= yield %>
+		
 		<div class="notice"><%= notice %></div>
 		<div class="alert"><%= alert %></div>
 	</div>

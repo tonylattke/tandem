@@ -1,6 +1,7 @@
 # Javascript
 Rails.application.config.assets.precompile += %w( jquery-1.10.2.js )
 Rails.application.config.assets.precompile += %w( bootstrap.js )
+Rails.application.config.assets.precompile += %w( angular.min.js )
 
 # Css
 Rails.application.config.assets.precompile += %w( bootstrap.css )

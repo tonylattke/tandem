@@ -54,7 +54,7 @@
   <% if  @profile.user.id == current_user.id %>
     <div class="col-md-3">
       <h3>Language interface</h3>
-      <%= @profile.language %>
+      <%= @profile.language.name %>
     </div>
     <div class="col-md-3">
       <h3>Question</h3>
