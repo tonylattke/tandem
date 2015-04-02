@@ -1,17 +1,13 @@
 angular.module('app.profileApp').controller("profileCtrl", [
-  '$scope',
-  ($scope)->
+  '$scope', 'Language', '$http'
+  ($scope, Language,$http)->
 
     # Functions
-      
-    $.ajax '/languages.json',
-        success  : (data, status, xhr) ->
-            $scope.languages = data
-            console.log("Works "+data)
-        error    : (xhr, status, err) ->
-            $scope.languages = []
-        complete : (xhr, status) ->
-            console.log("Complete")
+    
+    $scope.languages = []
+    $http.get('/languages.json').success((data) ->
+        $scope.languages = data
+    )
 
     # Main
 

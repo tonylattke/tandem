@@ -10,7 +10,7 @@ class LanguagesController < ApplicationController
   end
 
   def show
-    respond_with(@language)
+    #respond_with(@language)
   end
 
   def new

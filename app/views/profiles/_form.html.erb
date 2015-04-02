@@ -26,8 +26,7 @@
     </div>
     <div class="field">
       <%= f.label :language_id %><br>
-      <%= f.select :language_id, Language.all.collect {|p| [ p.name, p.id ] }, :selected => params[:language_id], :class => 'span3 controls controls-row', :selected => params[:language_id].present? ? params[:language_id] : nil %>
-      <select>
+      <select id="profile_language_id" name="profile[language_id]">
         <option ng-repeat="language in languages" value="{{language.id}}">
           {{language.name}}
         </option>
