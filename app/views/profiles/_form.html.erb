@@ -12,21 +12,21 @@
       </div>
     <% end %>
     
-    <div class="field">
+    <div class="field" >
       <%= f.label :nickname %><br>
-      <%= f.text_field :nickname %>
+      <%= f.text_field :nickname, :class => "form-control" %>
     </div>
     <div class="field">
       <%= f.label :name %><br>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :class => "form-control" %>
     </div>
     <div class="field">
       <%= f.label :lastname %><br>
-      <%= f.text_field :lastname %>
+      <%= f.text_field :lastname, :class => "form-control" %>
     </div>
     <div class="field">
       <%= f.label :language_id %><br>
-      <select id="profile_language_id" name="profile[language_id]">
+      <select id="profile_language_id" name="profile[language_id]" class="form-control">
         <option ng-repeat="language in languages" value="{{language.id}}">
           {{language.name}}
         </option>
@@ -34,37 +34,37 @@
     </div>
     <div class="field">
       <%= f.label :telf %><br>
-      <%= f.text_field :telf %>
+      <%= f.text_field :telf, :class => "form-control" %>
     </div>
     <div class="field">
       <%= f.label :birthdate %><br>
-      <%= f.date_select :birthdate %>
+      <%= f.date_select :birthdate, :class => 'datepicker' %>
     </div>
     <div class="field">
       <%= f.label :about %><br>
-      <%= f.text_area :about %>
+      <%= f.text_area :about, :class => "form-control" %>
     </div>
     <div class="field">
       <%= f.label :question %><br>
-      <%= f.text_field :question %>
+      <%= f.text_field :question, :class => "form-control" %>
     </div>
     <div class="field">
       <%= f.label :answer %><br>
-      <%= f.text_field :answer %>
+      <%= f.text_field :answer, :class => "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :gender %><br>
-      <%= f.text_field :gender %>
+      <%= f.text_field :gender, :class => "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :photo %><br>
-      <%= f.file_field :photo %>
+      <%= f.file_field :photo, :class => "form-control" %>
     </div>
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit  :class => "btn btn-lg btn-primary" %>
     </div>
   <% end %>
 </div>

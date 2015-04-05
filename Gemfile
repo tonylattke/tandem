@@ -62,3 +62,6 @@ gem 'friendly_id'
 # Angular.js
 gem 'angular-rails-templates'
 gem 'bower-rails'
+
+# CSS Datepicker
+gem 'bootstrap-datepicker-rails'
