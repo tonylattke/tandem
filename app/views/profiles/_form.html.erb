@@ -1,6 +1,6 @@
 <div ng-app='app.profileApp' ng-controller='profileCtrl'>
   
-  <%= form_for(@profile) do |f| %>
+  <%= bootstrap_form_for(@profile) do |f| %>
     <% if @profile.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
@@ -13,53 +13,43 @@
     <% end %>
     
     <div class="field" >
-      <%= f.label :nickname %><br>
-      <%= f.text_field :nickname, :class => "form-control" %>
+      <%= f.text_field :nickname %>
     </div>
     <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name, :class => "form-control" %>
+      <%= f.text_field :name %>
     </div>
     <div class="field">
-      <%= f.label :lastname %><br>
-      <%= f.text_field :lastname, :class => "form-control" %>
+      <%= f.text_field :lastname %>
     </div>
     <div class="field">
       <%= f.label :language_id %><br>
-      <select id="profile_language_id" name="profile[language_id]" class="form-control">
+      <select id="profile_language_id" name="profile[language_id]">
         <option ng-repeat="language in languages" value="{{language.id}}">
           {{language.name}}
         </option>
       </select>
     </div>
     <div class="field">
-      <%= f.label :telf %><br>
-      <%= f.text_field :telf, :class => "form-control" %>
+      <%= f.text_field :telf %>
     </div>
     <div class="field">
-      <%= f.label :birthdate %><br>
-      <%= f.date_select :birthdate, :class => 'datepicker' %>
+      <%= f.date_select :birthdate %>
     </div>
     <div class="field">
-      <%= f.label :about %><br>
-      <%= f.text_area :about, :class => "form-control" %>
+      <%= f.text_area :about %>
     </div>
     <div class="field">
-      <%= f.label :question %><br>
-      <%= f.text_field :question, :class => "form-control" %>
+      <%= f.text_field :question %>
     </div>
     <div class="field">
-      <%= f.label :answer %><br>
-      <%= f.text_field :answer, :class => "form-control" %>
+      <%= f.text_field :answer %>
     </div>
 
     <div class="field">
-      <%= f.label :gender %><br>
-      <%= f.text_field :gender, :class => "form-control" %>
+      <%= f.text_field :gender %>
     </div>
 
     <div class="field">
-      <%= f.label :photo %><br>
       <%= f.file_field :photo, :class => "form-control" %>
     </div>
 
