@@ -33,7 +33,15 @@
   </div>
   <div class="col-md-3">
     <h3>Gender</h3>
-    <p><%= @profile.gender %></p>
+    <% if @profile.gender == 'm' %>
+      <p>Male</p>
+    <% end %>
+    <% if @profile.gender == 'f' %>
+      <p>Female</p>
+    <% end %>
+    <% if @profile.gender == 'o' %>
+      <p>Other</p>
+    <% end %>
   </div>
   <div class="col-md-3">
     <h3>Telephone</h3>
@@ -58,7 +66,18 @@
     </div>
     <div class="col-md-3">
       <h3>Question</h3>
-      <p><%= @profile.question %></p>
+      <% if @profile.question == 'f' %>
+        <p>Name of Father?</p>
+      <% end %>
+      <% if @profile.question == 'm' %>
+        <p>Name of Mother?</p>
+      <% end %>
+      <% if @profile.question == 's' %>
+        <p>Name of School?</p>
+      <% end %>
+      <% if @profile.question == 'o' %>
+        <p>Other</p>
+      <% end %>
     </div>
     <div class="col-md-3">
       <h3>Answer</h3>
@@ -66,7 +85,6 @@
     </div>
   <% end %>
 </div>
-
 
 <% if user_signed_in? %>
   <% if @is_friend %>

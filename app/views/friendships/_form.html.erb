@@ -1,4 +1,4 @@
-<%= form_for(@friendship) do |f| %>
+<%= bootstrap_form_for(@friendship) do |f| %>
   <% if @friendship.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@friendship.errors.count, "error") %> prohibited this friendship from being saved:</h2>
@@ -24,6 +24,6 @@
     <%= f.check_box :tandem %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-lg btn-primary" %>
   </div>
 <% end %>

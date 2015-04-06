@@ -1,4 +1,4 @@
-<%= form_for(@country) do |f| %>
+<%= bootstrap_form_for(@country) do |f| %>
   <% if @country.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@country.errors.count, "error") %> prohibited this country from being saved:</h2>
@@ -32,6 +32,6 @@
     <%= f.text_field :iso_code %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-lg btn-primary" %>
   </div>
 <% end %>
