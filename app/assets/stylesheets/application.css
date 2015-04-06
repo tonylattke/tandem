@@ -50,3 +50,8 @@
 	color: #000;
 	text-decoration: none;
 }
+
+.form_field_navbar {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
