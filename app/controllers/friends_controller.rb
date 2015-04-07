@@ -31,6 +31,13 @@ class FriendsController < ApplicationController
 				@another_profiles.push(profile)
 			end
 		end
+
+		my_friendship_invitations = FriendshipInvitation.where("recipient_id = ?",current_user)
+        @invitations = []
+        for friendship_invitation in my_friendship_invitations
+            a = {:profile => Profile.find_by(user: friendship_invitation.sender), :friendship_invitation => friendship_invitation }
+            @invitations.push(a)
+        end
 	end
 
 end

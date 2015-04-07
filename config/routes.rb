@@ -4,14 +4,14 @@ Rails.application.routes.draw do
   get 'inbox', to: 'welcome#inbox', as: 'inbox'
   get 'sent', to: 'welcome#sent', as: 'sent'
 
-  resources :setup_init
-
   resources :friends
 
   resources :mail_messages
 
   resources :friendships
 
+  resources :friendship_invitations
+  
   resources :country_languages
 
   resources :countries
@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  post 'send_invitation', to: 'friendship_invitations#create', as: 'send_invitation'
+  post 'accept_invitation', to: 'friendships#create', as: 'accept_invitation'
 
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.

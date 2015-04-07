@@ -1,4 +1,39 @@
 <div class="well">
+	
+	<% if @invitations.length > 0 %>
+
+	<h1>Invitations</h1>
+
+	<div class="panel-body">
+		<table class="table">
+			<thead>
+				<th>User</th>
+				<th>Accept</th>
+				<th>Decline</th>
+			</thead>
+			<tbody>
+				<% @invitations.each do |aux| %>
+					<tr>
+						<td>
+							<%= link_to aux[:profile][:nickname], profile_path(aux[:profile]) %>
+						</td>
+						<td>
+							<form accept-charset="UTF-8" action="/accept_invitation" method="post" role="form">
+							<input name="utf8" type="hidden" value="&#x2713;" />
+							<%= csrf_meta_tags %>
+							<input name="friendship[sender]" type="hidden" value="<%=aux[:profile].user.id%>" />
+							<input name="friendship[recipient]" type="hidden" value="<%=current_user.id%>" />
+							<button id="accept_invitation" name="commit" type="submit" class="btn btn-primary">Accept invitation</button>
+							</form>
+						</td>
+						<td><%= link_to 'Decline invitation', aux[:friendship_invitation], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary" %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<% end %>				
 
 	<h1>My friends</h1>
 

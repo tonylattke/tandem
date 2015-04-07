@@ -1,0 +1,23 @@
+<%= bootstrap_form_for(@friendship_invitation) do |f| %>
+  <% if @friendship_invitation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@friendship_invitation.errors.count, "error") %> prohibited this friendship_invitation from being saved:</h2>
+
+      <ul>
+      <% @friendship_invitation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :sender %>
+  </div>
+  <div class="field">
+    <%= f.text_field :recipient %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

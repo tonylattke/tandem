@@ -1,0 +1,27 @@
+<h1>Listing friendship_invitations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sender</th>
+      <th>Recipient</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @friendship_invitations.each do |friendship_invitation| %>
+      <tr>
+        <td><%= friendship_invitation.user %></td>
+        <td><%= friendship_invitation.user %></td>
+        <td><%= link_to 'Show', friendship_invitation %></td>
+        <td><%= link_to 'Edit', edit_friendship_invitation_path(friendship_invitation) %></td>
+        <td><%= link_to 'Destroy', friendship_invitation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Friendship invitation', new_friendship_invitation_path %>

@@ -1,7 +1,7 @@
 class FriendshipsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_friendship, only: [:show, :edit, :update, :destroy]
-
+  skip_before_filter :verify_authenticity_token
   respond_to :html
 
   def index
@@ -22,9 +22,17 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    @friendship = Friendship.new(friendship_params)
+    @friendship = Friendship.new(
+      {:sender_id => params[:friendship][:sender].to_i, 
+       :recipient_id => params[:friendship][:recipient].to_i
+      })
     @friendship.save
-    respond_with(@friendship)
+    friendship_invitation = FriendshipInvitation.find_by(
+      {:sender_id => params[:friendship][:sender].to_i, 
+       :recipient_id => params[:friendship][:recipient].to_i
+      })
+    friendship_invitation.destroy
+    redirect_to (session[:return_to] || root_path), :notice => 'You have a new friend!'
   end
 
   def update
@@ -34,7 +42,7 @@ class FriendshipsController < ApplicationController
 
   def destroy
     @friendship.destroy
-    respond_with(@friendship)
+    redirect_to root_path
   end
 
   private
