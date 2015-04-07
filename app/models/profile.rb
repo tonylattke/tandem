@@ -15,6 +15,8 @@ class Profile < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/jpg', 'image/gif']
 
+  validates :telf, format: { with: /\d{4}-\d{3}-\d{4}/, message: "Wrong format. You must use XXXX-XXX-XXXX" }
+
   def to_s
     return "#{@nickname}"
   end

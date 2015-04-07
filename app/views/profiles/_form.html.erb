@@ -22,12 +22,7 @@
       <%= f.text_field :lastname %>
     </div>
     <div class="field">
-      <%= f.label :language_id %><br>
-      <select id="profile_language_id" name="profile[language_id]">
-        <option ng-repeat="language in languages" value="{{language.id}}">
-          {{language.name}}
-        </option>
-      </select>
+      <%= f.select :language_id, @languages, { :selected => @profile.language_id } %>
     </div>
     <div class="field">
       <%= f.text_field :telf %>
@@ -46,7 +41,7 @@
     </div>
 
     <div class="field">
-      <%= f.text_field :gender %>
+      <%= f.select :gender, [[ 'Male', 'm' ], [ 'Female', 'f'], [ 'Other', 'o' ]], { :selected => @profile.gender } %>
     </div>
 
     <div class="field">

@@ -7,11 +7,11 @@ class WelcomeController < ApplicationController
 	end
 
 	def inbox
-		@mail_messages = MailMessage.where("recipient_id = ?",current_user).group(:sender_id, :id)
+		@mail_messages = MailMessage.where("recipient_id = ?",current_user).reorder(:sender_id)
 	end
 
 	def sent
-		@mail_messages = MailMessage.where("sender_id = ?",current_user).group(:recipient_id, :id)
+		@mail_messages = MailMessage.where("sender_id = ?",current_user).reorder(:recipient_id)
 	end
 
 end

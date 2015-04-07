@@ -5,12 +5,14 @@
 		<thead>
 			<th>Recipient</th>
 			<th>Message</th>
+			<th>Date</th>
 		</thead>
 		<tbody>
 			<% @mail_messages.each do |mail_message| %>
 				<tr>
 					<td><%= mail_message.recipient.email %></td>
 					<td><%= mail_message.text %></td>
+					<td><%= mail_message.created_at %></td>
 				</tr>
 			<% end %>
 		</tbody>

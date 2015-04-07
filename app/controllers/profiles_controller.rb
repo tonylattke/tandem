@@ -31,6 +31,11 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    languages_all = Language.all
+    @languages = []
+    for language in languages_all
+      @languages.push([language.name,language.id])
+    end
   end
 
   def create
@@ -74,7 +79,7 @@ class ProfilesController < ApplicationController
     end
 
     def profile_params
-      params.require(:profile).permit(:user_id, :nickname, :name, :lastname, :language_id, :telf, :birthdate, :about, :question, :answer)
+      params.require(:profile).permit(:user_id, :nickname, :name, :lastname, :language_id, :telf, :birthdate, :about, :question, :answer, :gender)
     end
 
     before_filter :require_permission, only: :edit
